@@ -2,7 +2,7 @@
 
 React Interval timer
 
-## Project setup 📂
+## Project setup
 
 ### `npm start` 🚀
 
