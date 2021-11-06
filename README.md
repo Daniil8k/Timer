@@ -1,4 +1,4 @@
-# Timer
+# Timer ⏳
 
 React Interval timer
 
