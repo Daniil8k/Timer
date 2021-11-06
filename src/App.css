@@ -40,7 +40,28 @@
 }
 
 .btn {
-  @apply text-lg py-2 px-4 font-semibold rounded-lg shadow-md text-white;
+  color: #160d0d;
+  @apply text-xl py-2 px-4 font-semibold rounded-lg shadow-md;
+}
+
+.btn_big {
+  width: 20rem;
+}
+
+.btn_md {
+  width: 9rem;
+}
+
+.btn_success {
+  @apply bg-green-500 hover:bg-green-700;
+}
+
+.btn_danger {
+  @apply bg-red-500 hover:bg-red-700;
+}
+
+.btn_fancy {
+  @apply bg-purple-500 hover:bg-purple-700;
 }
 
 .time-picker-cell__input {
@@ -57,6 +78,7 @@
   border-radius: 5px;
   font-size: 1rem;
   background-color: #474d5a;
+  height: 2rem;
 }
 
 .time-picker-cell__arrow:hover {

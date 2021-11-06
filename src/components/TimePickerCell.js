@@ -1,7 +1,7 @@
 import ReactInputMask from "react-input-mask";
 import propTypes from "prop-types";
 
-function TimePickerCell({ time, setTime, isTimerStarted }) {
+function TimePickerCell({ time, setTime, isTimerStarted, label }) {
 	const addLeadingZero = (num) => {
 		if (num.toString().length === 1) {
 			return (num = "0" + num);
@@ -45,6 +45,7 @@ function TimePickerCell({ time, setTime, isTimerStarted }) {
 
 	return (
 		<div className="flex flex-col gap-1">
+			<label for={ `${label}-input` } className="text-lg select-none mb-2">{ label }</label>
 			<button
 				className={`time-picker-cell__arrow ${
 					isTimerStarted ? "invisible" : "visible"
@@ -54,6 +55,7 @@ function TimePickerCell({ time, setTime, isTimerStarted }) {
 				ᐃ
 			</button>
 			<ReactInputMask
+				id={ `${label}-input` }
 				className="time-picker-cell__input"
 				value={time}
 				mask="99"
@@ -82,7 +84,8 @@ function TimePickerCell({ time, setTime, isTimerStarted }) {
 TimePickerCell.propTypes = {
 	time: propTypes.string,
 	setTime: propTypes.func,
-	isTimerStarted: propTypes.bool
+	isTimerStarted: propTypes.bool,
+	label: propTypes.string
 };
 
 export default TimePickerCell;

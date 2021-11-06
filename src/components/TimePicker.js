@@ -156,12 +156,14 @@ function TimePicker() {
 			</svg>
 			<div className="flex items-center justify-center gap-2 -m-2">
 				<TimePickerCell
+					label="minutes"
 					time={minutes}
 					setTime={setMinutes}
 					isTimerStarted={isTimerStarted}
 				/>
-				<span className="text-5xl">:</span>
+				<span className="text-5xl mt-12">:</span>
 				<TimePickerCell
+					label="seconds"
 					time={seconds}
 					setTime={setSeconds}
 					isTimerStarted={isTimerStarted}
@@ -170,20 +172,20 @@ function TimePicker() {
 			<div className="mt-12 flex items-center justify-center gap-8">
 				{isStartShow && (
 					<button
-						className="btn bg-green-500 hover:bg-green-700"
+						className="btn btn_success btn_big"
 						onClick={start}
 					>
 						Start
 					</button>
 				)}
 				{!isStartShow && (
-					<button className="btn bg-red-500 hover:bg-red-700" onClick={stop}>
+					<button className="btn btn_danger btn_md" onClick={stop}>
 						Stop
 					</button>
 				)}
 				{!isStartShow && (
 					<button
-						className="btn bg-purple-500 hover:bg-purple-700 w-20"
+						className="btn btn_fancy btn_md"
 						onClick={isPauseShow ? pause : play}
 					>
 						{isPauseShow ? "Pause" : "Play"}
