@@ -1,6 +1,7 @@
 # Timer ⏳
 
-React Interval timer
+React Interval timer\
+Demo: https://daniil8k.github.io/Timer/
 
 ## Project setup
 
