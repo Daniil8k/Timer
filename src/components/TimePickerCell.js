@@ -41,7 +41,7 @@ function TimePickerCell({ time, setTime, isTimerStarted, label }) {
 
 	const setValidTime = (time) => {
 		if (Number(time) > 59) {
-			setTime("00");
+			setTime("59");
 		} else {
 			let newTime = addLeadingZero(time);
 			setTime(newTime);
