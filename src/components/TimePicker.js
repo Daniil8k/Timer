@@ -126,7 +126,7 @@ function TimePicker() {
 					cy="60"
 					r="50"
 					fill="none"
-					stroke="transparent"
+					stroke="black"
 					strokeWidth="5"
 				/>
 				<circle
