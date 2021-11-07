@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import TimePickerCell from "./TimePickerCell";
 import bellSound from "../sounds/bell.mp3";
 let timer = null;
+let defaultMinutes = "05";
+let defaultSeconds = "30";
 
 function TimePicker() {
-	let defaultMinutes = "05";
-	let defaultSeconds = "30";
 	const [isStartShow, setIsStartShow] = useState(true);
 	const [isPauseShow, setIsPauseShow] = useState(true);
 	const [isTimerStarted, setIsTimerStarted] = useState(false);
@@ -14,11 +14,12 @@ function TimePicker() {
 	const [seconds, setSeconds] = useState(defaultSeconds);
 
 	const addLeadingZero = (num) => {
-		if (num.toString().length === 1) {
-			return (num = "0" + num);
-		} else {
-			return num.toString();
+		num = num.toString();
+		if (num.length === 1) {
+			num = "0" + num;
 		}
+
+		return num;
 	};
 
 	useEffect(() => {
@@ -30,22 +31,27 @@ function TimePicker() {
 			return;
 		}
 
-		if (+minutes === 0 && +seconds === 0) {
+		function startNextRound() {
 			setMinutes(defaultMinutes);
 			setSeconds(defaultSeconds);
 			setCount((state) => state + 1);
+			playSound();
 			startCircleAnimation(defaultMinutes, defaultSeconds);
-			ring();
-			return;
 		}
 
-		if (+seconds === -1) {
+		function startNextMinute() {
 			setSeconds("59");
 			setMinutes((state) => addLeadingZero(state - 1));
 		}
-	}, [seconds, minutes, isTimerStarted, defaultMinutes, defaultSeconds]);
 
-	const ring = () => {
+		if (+minutes === 0 && +seconds === 0) {
+			startNextRound();
+		} else if (+seconds === -1) {
+			startNextMinute();
+		}
+	}, [seconds, minutes, isTimerStarted]);
+
+	const playSound = () => {
 		let sound = new Audio(bellSound);
 		sound.play();
 	};
@@ -107,15 +113,14 @@ function TimePicker() {
 	};
 
 	return (
-		<div>
+		<div className="mx-auto w-max">
 			<svg
-				id="svg1"
 				xmlns="http://www.w3.org/2000/svg"
-				height="200"
+				width="120"
+				height="120"
 				className="mx-auto"
 				viewBox="0 0 120 120"
 			>
-				<rect width="100%" height="100%" fill="transparent" />
 				<circle
 					cx="60"
 					cy="60"
@@ -169,23 +174,20 @@ function TimePicker() {
 					isTimerStarted={isTimerStarted}
 				/>
 			</div>
-			<div className="mt-12 flex items-center justify-center gap-8">
+			<div className="mt-12 flex items-center justify-center gap-7">
 				{isStartShow && (
-					<button
-						className="btn btn_success btn_big"
-						onClick={start}
-					>
+					<button className="btn btn_success w-full" onClick={start}>
 						Start
 					</button>
 				)}
 				{!isStartShow && (
-					<button className="btn btn_danger btn_md" onClick={stop}>
+					<button className="btn btn_danger w-1/2" onClick={stop}>
 						Stop
 					</button>
 				)}
 				{!isStartShow && (
 					<button
-						className="btn btn_fancy btn_md"
+						className="btn btn_fancy w-1/2"
 						onClick={isPauseShow ? pause : play}
 					>
 						{isPauseShow ? "Pause" : "Play"}

@@ -3,80 +3,92 @@ import propTypes from "prop-types";
 
 function TimePickerCell({ time, setTime, isTimerStarted, label }) {
 	const addLeadingZero = (num) => {
-		if (num.toString().length === 1) {
-			return (num = "0" + num);
+		num = num.toString()
+		if (num.length === 1) {
+			num = "0" + num;
+		}
+
+		return num;
+	};
+
+	const increaceTime = () => {
+		let timeNumber = Number(time);
+		let newTime;
+
+		if (timeNumber === 59) {
+			newTime = "00";
 		} else {
-			return num.toString();
+			newTime = (timeNumber + 1).toString();
 		}
+
+		newTime = addLeadingZero(newTime);
+		setTime(newTime);
 	};
 
-	const increaceValue = () => {
-		let valueNumber = +time;
-		let newValue = "00";
+	const decreaceTime = () => {
+		let timeNumber = Number(time);
+		let newTime;
 
-		if (valueNumber < 59) {
-			newValue = valueNumber + 1;
+		if (timeNumber === 0) {
+			newTime = "59";
+		} else {
+			newTime = (timeNumber - 1).toString();
 		}
 
-		newValue = addLeadingZero(newValue);
-		setTime(newValue);
-	};
-
-	const decreaceValue = () => {
-		let valueNumber = +time;
-		let newValue = "59";
-
-		if (valueNumber > 0) {
-			newValue = valueNumber - 1;
-		}
-
-		newValue = addLeadingZero(newValue);
-		setTime(newValue);
+		newTime = addLeadingZero(newTime);
+		setTime(newTime);
 	};
 
 	const setValidTime = (time) => {
-		if (time > 59) {
+		if (Number(time) > 59) {
 			setTime("00");
 		} else {
-			let newValue = addLeadingZero(time);
-			setTime(newValue);
+			let newTime = addLeadingZero(time);
+			setTime(newTime);
 		}
 	};
 
 	return (
-		<div className="flex flex-col gap-1">
-			<label for={ `${label}-input` } className="text-lg select-none mb-2">{ label }</label>
-			<button
-				className={`time-picker-cell__arrow ${
-					isTimerStarted ? "invisible" : "visible"
-				}`}
-				onClick={increaceValue}
+		<div>
+			<label
+				htmlFor={`${label}-input`}
+				className="block text-lg select-none mb-4 mx-auto"
 			>
-				ᐃ
-			</button>
-			<ReactInputMask
-				id={ `${label}-input` }
-				className="time-picker-cell__input"
-				value={time}
-				mask="99"
-				maskChar={null}
-				alwaysShowMask="false"
-				disabled={isTimerStarted}
-				onChange={(e) => {
-					setTime(e.target.value);
-				}}
-				onBlur={(e) => {
-					setValidTime(e.target.value);
-				}}
-			/>
-			<button
-				className={`time-picker-cell__arrow ${
-					isTimerStarted ? "invisible" : "visible"
-				}`}
-				onClick={decreaceValue}
-			>
-				ᐁ
-			</button>
+				{label}
+			</label>
+			<div className="flex flex-col gap-1">
+				<button
+					className={`time-picker-cell__arrow ${
+						isTimerStarted ? "invisible" : "visible"
+					}`}
+					onClick={increaceTime}
+				>
+					ᐃ
+				</button>
+				<ReactInputMask
+					id={`${label}-input`}
+					className="time-picker-cell__input"
+					value={time}
+					mask="99"
+					maskChar={null}
+					alwaysShowMask="false"
+					disabled={isTimerStarted}
+					onChange={(e) => {
+						setTime(e.target.value);
+					}}
+					onBlur={(e) => {
+						setValidTime(e.target.value);
+					}}
+				/>
+				<button
+					className={`time-picker-cell__arrow ${
+						isTimerStarted ? "invisible" : "visible"
+					}`}
+					onClick={decreaceTime}
+				>
+					ᐁ
+				</button>
+			</div>
 		</div>
 	);
 }
@@ -85,7 +97,7 @@ TimePickerCell.propTypes = {
 	time: propTypes.string,
 	setTime: propTypes.func,
 	isTimerStarted: propTypes.bool,
-	label: propTypes.string
+	label: propTypes.string,
 };
 
 export default TimePickerCell;
