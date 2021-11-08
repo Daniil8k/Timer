@@ -77,8 +77,6 @@ function TimePicker() {
 		}, 1000);
 
 		startCircleAnimation(minutes, seconds);
-		defaultMinutes = minutes;
-		defaultSeconds = seconds;
 		setIsTimerStarted(true);
 	};
 
@@ -90,6 +88,8 @@ function TimePicker() {
 
 	const start = () => {
 		startTimer();
+		defaultMinutes = minutes;
+		defaultSeconds = seconds;
 		setIsStartShow(false);
 		setIsPauseShow(true);
 	};
