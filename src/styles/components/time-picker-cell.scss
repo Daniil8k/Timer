@@ -1,0 +1,50 @@
+.time-picker-cell__input {
+    $padding: 0.5rem;
+
+    border-radius: 5px;
+    position: relative;
+    font-size: 4rem;
+    max-width: calc(2ch + 2 * #{$padding});
+    padding: $padding;
+    background-color: transparent;
+
+    &:hover:not(:focus) {
+        outline: 1px solid var(--color-primary);
+    }
+
+    &::selection {
+        background-color: var(--color-accent);
+    }
+
+    &_fancy {
+        color: var(--color-fancy-dark);
+
+        .time-picker-cell__arrow {
+            fill: var(--color-fancy-dark);
+        }
+    }
+
+    @include breakpoint($md) {
+        font-size: 6rem;
+    }
+
+    @include breakpoint($lg) {
+        font-size: 7rem;
+    }
+}
+
+.time-picker-cell__arrow {
+    border-radius: 6px;
+    font-size: 1rem;
+    padding: 5px 0;
+    fill: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-primary-light);
+        fill: var(--color-primary-light);
+    }
+}

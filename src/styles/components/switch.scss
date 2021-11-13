@@ -1,0 +1,48 @@
+.switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.switch__input {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+
+    &:checked+.switch__fake-label {
+        background: var(--color-accent);
+    }
+
+    &:checked+.switch__fake-label:after {
+        left: calc(90%);
+        transform: translateX(-100%);
+    }
+}
+
+.switch__fake-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 40px;
+    height: 21px;
+    background: var(--color-neutral);
+    display: block;
+    border-radius: 100px;
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 10%;
+        width: 18px;
+        height: 18px;
+        background: var(--color-primary-light);
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+
+    &:active:after {
+        width: 22px;
+    }
+}

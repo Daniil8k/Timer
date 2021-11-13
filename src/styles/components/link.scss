@@ -1,0 +1,13 @@
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--color-primary);
+    fill: var(--color-primary);
+    
+    &:hover {
+        color: var(--color-fancy);
+        fill: var(--color-fancy);
+    }
+}
