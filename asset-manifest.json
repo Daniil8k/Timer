@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/Timer/static/css/main.5e52141c.chunk.css",
-    "main.js": "/Timer/static/js/main.59dd7553.chunk.js",
-    "main.js.map": "/Timer/static/js/main.59dd7553.chunk.js.map",
-    "runtime-main.js": "/Timer/static/js/runtime-main.205e93ae.js",
-    "runtime-main.js.map": "/Timer/static/js/runtime-main.205e93ae.js.map",
-    "static/js/2.11a4b24b.chunk.js": "/Timer/static/js/2.11a4b24b.chunk.js",
-    "static/js/2.11a4b24b.chunk.js.map": "/Timer/static/js/2.11a4b24b.chunk.js.map",
-    "static/js/3.3a5b9d8e.chunk.js": "/Timer/static/js/3.3a5b9d8e.chunk.js",
-    "static/js/3.3a5b9d8e.chunk.js.map": "/Timer/static/js/3.3a5b9d8e.chunk.js.map",
+    "main.css": "/Timer/static/css/main.02f8741c.chunk.css",
+    "main.js": "/Timer/static/js/main.3a811c43.chunk.js",
+    "main.js.map": "/Timer/static/js/main.3a811c43.chunk.js.map",
+    "runtime-main.js": "/Timer/static/js/runtime-main.cc8b7c40.js",
+    "runtime-main.js.map": "/Timer/static/js/runtime-main.cc8b7c40.js.map",
+    "static/js/2.41763693.chunk.js": "/Timer/static/js/2.41763693.chunk.js",
+    "static/js/2.41763693.chunk.js.map": "/Timer/static/js/2.41763693.chunk.js.map",
+    "static/js/3.66c77fc1.chunk.js": "/Timer/static/js/3.66c77fc1.chunk.js",
+    "static/js/3.66c77fc1.chunk.js.map": "/Timer/static/js/3.66c77fc1.chunk.js.map",
     "index.html": "/Timer/index.html",
-    "static/css/main.5e52141c.chunk.css.map": "/Timer/static/css/main.5e52141c.chunk.css.map",
-    "static/js/2.11a4b24b.chunk.js.LICENSE.txt": "/Timer/static/js/2.11a4b24b.chunk.js.LICENSE.txt",
+    "static/css/main.02f8741c.chunk.css.map": "/Timer/static/css/main.02f8741c.chunk.css.map",
+    "static/js/2.41763693.chunk.js.LICENSE.txt": "/Timer/static/js/2.41763693.chunk.js.LICENSE.txt",
     "static/media/bell.70927a4a.mp3": "/Timer/static/media/bell.70927a4a.mp3",
-    "static/media/logo.f3c4a504.webp": "/Timer/static/media/logo.f3c4a504.webp"
+    "static/media/logo.3624414e.png": "/Timer/static/media/logo.3624414e.png",
+    "static/media/logo512.80b61c0f.webp": "/Timer/static/media/logo512.80b61c0f.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.205e93ae.js",
-    "static/js/2.11a4b24b.chunk.js",
-    "static/css/main.5e52141c.chunk.css",
-    "static/js/main.59dd7553.chunk.js"
+    "static/js/runtime-main.cc8b7c40.js",
+    "static/js/2.41763693.chunk.js",
+    "static/css/main.02f8741c.chunk.css",
+    "static/js/main.3a811c43.chunk.js"
   ]
 }
