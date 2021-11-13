@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Timer/static/css/main.02f8741c.chunk.css",
+    "main.css": "/Timer/static/css/main.efeee320.chunk.css",
     "main.js": "/Timer/static/js/main.3a811c43.chunk.js",
     "main.js.map": "/Timer/static/js/main.3a811c43.chunk.js.map",
     "runtime-main.js": "/Timer/static/js/runtime-main.cc8b7c40.js",
@@ -10,7 +10,7 @@
     "static/js/3.66c77fc1.chunk.js": "/Timer/static/js/3.66c77fc1.chunk.js",
     "static/js/3.66c77fc1.chunk.js.map": "/Timer/static/js/3.66c77fc1.chunk.js.map",
     "index.html": "/Timer/index.html",
-    "static/css/main.02f8741c.chunk.css.map": "/Timer/static/css/main.02f8741c.chunk.css.map",
+    "static/css/main.efeee320.chunk.css.map": "/Timer/static/css/main.efeee320.chunk.css.map",
     "static/js/2.41763693.chunk.js.LICENSE.txt": "/Timer/static/js/2.41763693.chunk.js.LICENSE.txt",
     "static/media/bell.70927a4a.mp3": "/Timer/static/media/bell.70927a4a.mp3",
     "static/media/logo.3624414e.png": "/Timer/static/media/logo.3624414e.png",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.cc8b7c40.js",
     "static/js/2.41763693.chunk.js",
-    "static/css/main.02f8741c.chunk.css",
+    "static/css/main.efeee320.chunk.css",
     "static/js/main.3a811c43.chunk.js"
   ]
 }
