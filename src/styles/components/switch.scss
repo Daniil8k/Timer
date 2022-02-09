@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
 }
 
 .switch__input {
@@ -10,9 +9,9 @@
     width: 0;
     visibility: hidden;
 
-    &:checked+.switch__fake-label {
-        background: var(--color-accent);
-    }
+    // &:checked+.switch__fake-label {
+    //     background: var(--color-accent);
+    // }
 
     &:checked+.switch__fake-label:after {
         left: calc(90%);
@@ -25,7 +24,7 @@
     text-indent: -9999px;
     width: 40px;
     height: 21px;
-    background: var(--color-neutral);
+    background: var(--color-primary);
     display: block;
     border-radius: 100px;
     position: relative;

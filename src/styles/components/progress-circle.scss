@@ -1,0 +1,38 @@
+$w: 100px;
+$h: 100px;
+$border: 10px;
+$radius: 90;
+$r: $radius - 29;
+
+.progress-circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #spinner {
+        border-radius: 50%;
+        height: $w;
+        width: $h;
+        background: conic-gradient(var(--color-accent) 0%, #171a1f 0%);
+        mask-image: radial-gradient(circle, rgba(0, 0, 0, 0) #{$r + '%'}, black #{ $r + 4 + '%'});
+        -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 0) #{$r + '%'}, black #{ $r + 4 + '%'});
+    }
+
+    #middle {
+        position: absolute;
+        border-radius: 50%;
+        color: var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: large;
+        font-weight: bold;
+
+        @supports not ((-webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 0) #{$r + '%'}, black #{ $r + 4 + '%'})) or (mask-image: radial-gradient(circle, rgba(0, 0, 0, 0) #{$r + '%'}, black #{ $r + 4 + '%'}))) {
+            background-color: var(--color-primary-light);
+            height: $w - $border;
+            width: $h - $border;
+        }
+    }
+}

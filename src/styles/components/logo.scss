@@ -1,18 +1,4 @@
 .logo {
-  filter: hue-rotate(90deg);
-  animation: hue 10s ease-in-out alternate infinite;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-}
-
-@keyframes hue {
-  from {
-    filter: hue-rotate(90deg);
-  }
-
-  to {
-    filter: hue-rotate(270deg);
-  }
+  box-shadow: 1px 1px 3px 1px #4d4d4dd4;
+  border-radius: 50%;
 }
