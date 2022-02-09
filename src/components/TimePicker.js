@@ -1,6 +1,7 @@
 import logo512Image from "../assets/logo512.webp";
 import { useState, useEffect } from "react";
 import bellSound from "../sounds/bell.mp3";
+import silenceSound from "../sounds/1-second-of-silence.mp3";
 import TimePickerCell from "./TimePickerCell";
 import ProgressCircle from "./ProgressCircle";
 
@@ -144,7 +145,7 @@ function TimePicker({ isInfiniteMode }) {
 	};
 
 	const playFakeSound = () => {
-		let sound = new Audio();
+		let sound = new Audio(silenceSound);
 		sound.play();
 	};
 
