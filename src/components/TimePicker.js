@@ -1,9 +1,21 @@
 import logo512Image from "../assets/logo512.webp";
 import { useState, useEffect } from "react";
-import bellSound from "../sounds/bell.mp3";
-import silenceSound from "../sounds/1-second-of-silence.mp3";
 import TimePickerCell from "./TimePickerCell";
 import ProgressCircle from "./ProgressCircle";
+
+import silenceSound from "../sounds/1-second-of-silence.mp3";
+import bellSound from "../sounds/bell.mp3";
+import birdSound from "../sounds/bird.wav";
+import carSound from "../sounds/car.wav";
+import catSound from "../sounds/cat.wav";
+import dogSound from "../sounds/dog.wav";
+import doorbellSound from "../sounds/doorbell.wav";
+import horseSound from "../sounds/horse.wav";
+import lionSound from "../sounds/lion.wav";
+import notifySound from "../sounds/notify.wav";
+import roosterSound from "../sounds/rooster.wav";
+import serviceSound from "../sounds/service.wav";
+import toySound from "../sounds/toy.wav";
 
 let timerId = null;
 let notification = null;
@@ -20,6 +32,57 @@ function TimePicker({ isInfiniteMode }) {
 	const [count, setCount] = useState(0);
 	const [time, setTime] = useState(defaultTime);
 	const [totalTime, setTotalTime] = useState(0);
+	const [currentSound, setCurrentSound] = useState(bellSound);
+	const selectSounds = [
+		{
+			label: "Bell",
+			value: bellSound,
+		},
+		{
+			label: "Bird",
+			value: birdSound,
+		},
+		{
+			label: "Car",
+			value: carSound,
+		},
+		{
+			label: "Cat",
+			value: catSound,
+		},
+		{
+			label: "Dog",
+			value: dogSound,
+		},
+		{
+			label: "Doorbell",
+			value: doorbellSound,
+		},
+		{
+			label: "Horse",
+			value: horseSound,
+		},
+		{
+			label: "Lion",
+			value: lionSound,
+		},
+		{
+			label: "Notify",
+			value: notifySound,
+		},
+		{
+			label: "Rooster",
+			value: roosterSound,
+		},
+		{
+			label: "Service",
+			value: serviceSound,
+		},
+		{
+			label: "Toy",
+			value: toySound,
+		},
+	];
 
 	const getTimeInSeconds = (time) => {
 		return +time.h * 60 * 60 + +time.m * 60 + +time.s;
@@ -179,7 +242,7 @@ function TimePicker({ isInfiniteMode }) {
 	};
 
 	const playSound = () => {
-		let sound = new Audio(bellSound);
+		let sound = new Audio(currentSound);
 		sound.play();
 	};
 
@@ -235,7 +298,27 @@ function TimePicker({ isInfiniteMode }) {
 
 	return (
 		<div className="timer-picker">
-			<ProgressCircle time={time} tick={time.s} total={totalTime} />
+			<div className="flex items-center justify-around gap-2">
+				<div className="info-block">
+					<label className="info-block__label">Round</label>
+					<div className="info-block__content ">{count}</div>
+				</div>
+				<ProgressCircle time={time} tick={time.s} total={totalTime} />
+				<div className="info-block">
+					<label className="info-block__label">Sound</label>
+					<select
+						onChange={(event) => setCurrentSound(event.target.value)}
+						value={currentSound}
+						className="info-block__content info-block__select"
+					>
+						{selectSounds.map((sound) => (
+							<option key={sound.label} value={sound.value}>
+								{sound.label}
+							</option>
+						))}
+					</select>
+				</div>
+			</div>
 			<div className="flex items-center justify-center gap-2 mt-5">
 				<TimePickerCell
 					label="hours"

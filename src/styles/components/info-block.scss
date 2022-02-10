@@ -1,0 +1,57 @@
+$glass: rgba(255, 255, 255, 0.2);
+$glass-icon: rgba(255, 255, 255, 0.3);
+$option: var(--color-secondary);
+
+.info-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 90px;
+    font-size: 1.125rem;
+
+    &__label {
+        font-weight: bold;
+    }
+    
+    &__content {
+        min-height: 27px;
+    }
+
+    &__select {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    /* <select> styles */
+    select {
+        /* Reset */
+        appearance: none;
+        border: 0;
+        outline: 0;
+        /* Personalize */
+        padding: 0 4px;
+        background: url('../../assets/arrow-down.svg') no-repeat right 4px center / 18px,
+            linear-gradient(to left, $glass-icon 28px, $glass 28px);
+        color: var(--color-primary);
+        border-radius: 0.25em;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+
+        /* <option> colors */
+        option {
+            color: inherit;
+            background-color: $option;
+        }
+
+        /* Remove focus outline */
+        &:focus {
+            outline: none;
+        }
+
+        /* Remove IE arrow */
+        &::-ms-expand {
+            display: none;
+        }
+    }
+}

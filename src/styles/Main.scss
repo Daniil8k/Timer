@@ -8,6 +8,7 @@
 
 /* === Elements === */
 @import "./elements/container";
+@import "./elements/justify-around";
 
 /* === Components === */
 @import "./components/logo";
@@ -19,3 +20,4 @@
 @import "./components/time-picker-cell";
 @import "./components/progress-circle";
 @import "./components/tooltip";
+@import "./components/info-block";
