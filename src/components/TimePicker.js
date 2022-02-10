@@ -25,17 +25,46 @@ function TimePicker({ isInfiniteMode }) {
 		return +time.h * 60 * 60 + +time.m * 60 + +time.s;
 	};
 
+	const onPageVisible = () => {
+		if (document.visibilityState === "visible") {
+			// The tab has become visible so clear the now-stale Notification.
+			setTimeout(() => {
+				notification && notification.close();
+			}, 300);
+		}
+	};
+
+	const onKeyDown = (e) => {
+		switch (e.key.toLowerCase()) {
+			case "p":
+			case "з":
+				setIsTimerStarted((isTimerStarted) => {
+					if (isTimerStarted) {
+						pause();
+					} else {
+						play();
+					}
+					return isTimerStarted;
+				});
+				break;
+			case "escape":
+				stop();
+				break;
+			default:
+				break;
+		}
+	};
+
 	useEffect(() => {
 		setTotalTime(getTimeInSeconds(defaultTime));
 
-		document.addEventListener("visibilitychange", () => {
-			if (document.visibilityState === "visible") {
-				// The tab has become visible so clear the now-stale Notification.
-				setTimeout(() => {
-					notification && notification.close();
-				}, 300);
-			}
-		});
+		document.addEventListener("visibilitychange", onPageVisible);
+		document.addEventListener("keydown", onKeyDown);
+
+		return () => {
+			document.removeEventListener("visibilitychange", onPageVisible);
+			document.removeEventListener("keydown", onKeyDown);
+		};
 	}, []);
 
 	const addLeadingZero = (num) => {
@@ -164,11 +193,13 @@ function TimePicker({ isInfiniteMode }) {
 	};
 
 	const play = () => {
+		setIsStartShow(false);
 		setIsPauseShow(true);
 		startTimer();
 	};
 
 	const pause = () => {
+		setIsStartShow(false);
 		setIsPauseShow(false);
 		stopTimer();
 	};
@@ -231,7 +262,11 @@ function TimePicker({ isInfiniteMode }) {
 			</div>
 			<div className="mt-12 flex items-center justify-center gap-7">
 				{isStartShow ? (
-					<button className="btn btn_success w-full" onClick={start}>
+					<button
+						title="Start (p)"
+						className="btn btn_success w-full"
+						onClick={start}
+					>
 						<svg
 							width="13"
 							height="14"
@@ -244,7 +279,11 @@ function TimePicker({ isInfiniteMode }) {
 					</button>
 				) : (
 					<>
-						<button className="btn btn_danger w-1/2" onClick={stop}>
+						<button
+							title="Stop (ESC)"
+							className="btn btn_danger w-1/2"
+							onClick={stop}
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="12"
@@ -256,7 +295,11 @@ function TimePicker({ isInfiniteMode }) {
 							<span>Stop</span>
 						</button>
 						{isPauseShow ? (
-							<button className="btn btn_fancy w-1/2" onClick={pause}>
+							<button
+								title="Pause (p)"
+								className="btn btn_fancy w-1/2"
+								onClick={pause}
+							>
 								<svg
 									width="12"
 									height="14"
@@ -268,7 +311,11 @@ function TimePicker({ isInfiniteMode }) {
 								<span>Pause</span>
 							</button>
 						) : (
-							<button className="btn btn_fancy w-1/2" onClick={play}>
+							<button
+								title="Play (p)"
+								className="btn btn_fancy w-1/2"
+								onClick={play}
+							>
 								<svg
 									width="12"
 									height="14"
