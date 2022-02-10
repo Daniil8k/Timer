@@ -1,7 +1,7 @@
 .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 5px;
+    padding: 5px 15px;
 
     @media screen and (min-width: $sm) {
         padding: 5px 40px;
