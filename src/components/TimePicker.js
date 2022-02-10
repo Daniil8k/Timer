@@ -32,7 +32,9 @@ function TimePicker({ isInfiniteMode }) {
 	const [count, setCount] = useState(0);
 	const [time, setTime] = useState(defaultTime);
 	const [totalTime, setTotalTime] = useState(0);
-	const [currentSound, setCurrentSound] = useState(bellSound);
+	const [currentSound, setCurrentSound] = useState(
+		localStorage.getItem("sound") || bellSound
+	);
 	const selectSounds = [
 		{
 			label: "Bell",
@@ -237,13 +239,13 @@ function TimePicker({ isInfiniteMode }) {
 	};
 
 	const playFakeSound = () => {
-		let sound = new Audio(silenceSound);
-		sound.play();
+		let audio = new Audio(silenceSound);
+		audio.play();
 	};
 
-	const playSound = () => {
-		let sound = new Audio(currentSound);
-		sound.play();
+	const playSound = (sound = currentSound) => {
+		let audio = new Audio(sound);
+		audio.play();
 	};
 
 	const start = () => {
@@ -296,6 +298,12 @@ function TimePicker({ isInfiniteMode }) {
 		notification.onclick = () => start();
 	};
 
+	const onChangeSound = (event) => {
+		localStorage.setItem("sound", event.target.value);
+		playSound(event.target.value);
+		setCurrentSound(event.target.value);
+	};
+
 	return (
 		<div className="timer-picker">
 			<div className="flex items-center justify-around gap-2">
@@ -307,7 +315,7 @@ function TimePicker({ isInfiniteMode }) {
 				<div className="info-block">
 					<label className="info-block__label">Sound</label>
 					<select
-						onChange={(event) => setCurrentSound(event.target.value)}
+						onChange={onChangeSound}
 						value={currentSound}
 						className="info-block__content info-block__select"
 					>
