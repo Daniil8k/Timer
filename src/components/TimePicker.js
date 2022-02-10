@@ -339,7 +339,7 @@ function TimePicker({ isInfiniteMode }) {
 					</div>
 				</div>
 			</div>
-			<div className="flex items-center justify-center gap-2 mt-5">
+			<div className="flex items-center justify-center gap-2 mt-12">
 				<TimePickerCell
 					label="hours"
 					time={time.h}
