@@ -13,26 +13,27 @@ $option: var(--color-secondary);
     &__label {
         font-weight: bold;
     }
-    
+
     &__content {
         min-height: 27px;
     }
 
-    &__select {
+    &__select-wrapper {
+        position: relative;
         width: 100%;
         font-size: 1rem;
     }
 
     /* <select> styles */
     select {
+        width: 100%;
         /* Reset */
         appearance: none;
         border: 0;
         outline: 0;
         /* Personalize */
         padding: 0 4px;
-        background: url('../../assets/arrow-down.svg') no-repeat right 4px center / 18px,
-            linear-gradient(to left, $glass-icon 28px, $glass 28px);
+        background: rgba(255, 255, 255, 0.2);
         color: var(--color-primary);
         border-radius: 0.25em;
         box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
@@ -53,5 +54,11 @@ $option: var(--color-secondary);
         &::-ms-expand {
             display: none;
         }
+    }
+
+    .arrow {
+        position: absolute;
+        right: 0;
+        top: 4px;
     }
 }

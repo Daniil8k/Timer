@@ -314,17 +314,29 @@ function TimePicker({ isInfiniteMode }) {
 				<ProgressCircle time={time} tick={time.s} total={totalTime} />
 				<div className="info-block">
 					<label className="info-block__label">Sound</label>
-					<select
-						onChange={onChangeSound}
-						value={currentSound}
-						className="info-block__content info-block__select"
-					>
-						{selectSounds.map((sound) => (
-							<option key={sound.label} value={sound.value}>
-								{sound.label}
-							</option>
-						))}
-					</select>
+					<div className="info-block__select-wrapper">
+						<select
+							onChange={onChangeSound}
+							value={currentSound}
+							className="info-block__content info-block__select"
+						>
+							{selectSounds.map((sound) => (
+								<option key={sound.label} value={sound.value}>
+									{sound.label}
+								</option>
+							))}
+						</select>
+						<svg
+							className="arrow"
+							xmlns="http://www.w3.org/2000/svg"
+							height="20px"
+							width="20px"
+							viewBox="0 0 24 24"
+							fill="#000000"
+						>
+							<path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+						</svg>
+					</div>
 				</div>
 			</div>
 			<div className="flex items-center justify-center gap-2 mt-5">
