@@ -5,7 +5,7 @@ Demo: https://daniil8k.github.io/Timer/
 [![plus](https://user-images.githubusercontent.com/93822098/141679587-27d77923-a35b-4258-b474-c413582dee1c.png)](https://github.com/Daniil8k/Timer)
 [![tailwind](https://user-images.githubusercontent.com/93822098/141679691-afaaa233-e203-4b8d-aa5b-46d905a1e57b.png)](https://tailwindcss.com/)
 
-![mockup](https://user-images.githubusercontent.com/93822098/141678921-d3199908-b003-4c0a-b82b-9940ea8350c7.png)
+![mockup](https://user-images.githubusercontent.com/93822098/153750876-d12719c1-89e1-4896-8c60-f3a8739fad09.png)
 
 ## Project setup
 
