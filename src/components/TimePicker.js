@@ -29,7 +29,7 @@ function TimePicker({ isInfiniteMode }) {
 	const [isTimerStarted, setIsTimerStarted] = useState(false);
 	const [isStartShow, setIsStartShow] = useState(true);
 	const [isPauseShow, setIsPauseShow] = useState(true);
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(1);
 	const [time, setTime] = useState(defaultTime);
 	const [totalTime, setTotalTime] = useState(0);
 	const [currentSound, setCurrentSound] = useState(
@@ -37,51 +37,51 @@ function TimePicker({ isInfiniteMode }) {
 	);
 	const selectSounds = [
 		{
-			label: "Bell",
+			label: "Bell 🔔",
 			value: bellSound,
 		},
 		{
-			label: "Bird",
+			label: "Bird 🐦",
 			value: birdSound,
 		},
 		{
-			label: "Car",
+			label: "Car 🚗",
 			value: carSound,
 		},
 		{
-			label: "Cat",
+			label: "Cat 🐱",
 			value: catSound,
 		},
 		{
-			label: "Dog",
+			label: "Dog 🐶",
 			value: dogSound,
 		},
 		{
-			label: "Doorbell",
+			label: "Doorbell🚪",
 			value: doorbellSound,
 		},
 		{
-			label: "Horse",
+			label: "Horse 🐴",
 			value: horseSound,
 		},
 		{
-			label: "Lion",
+			label: "Lion 🦁",
 			value: lionSound,
 		},
 		{
-			label: "Notify",
+			label: "Notify 📳",
 			value: notifySound,
 		},
 		{
-			label: "Rooster",
+			label: "Rooster🐓",
 			value: roosterSound,
 		},
 		{
-			label: "Service",
+			label: "Service 🛎",
 			value: serviceSound,
 		},
 		{
-			label: "Toy",
+			label: "Toy 🪀",
 			value: toySound,
 		},
 	];
@@ -270,7 +270,7 @@ function TimePicker({ isInfiniteMode }) {
 	};
 
 	const stop = () => {
-		setCount(0);
+		setCount(1);
 		setTime(defaultTime);
 		setIsStartShow(true);
 		stopTimer();
@@ -314,11 +314,10 @@ function TimePicker({ isInfiniteMode }) {
 				<ProgressCircle time={time} tick={time.s} total={totalTime} />
 				<div className="info-block">
 					<label className="info-block__label">Sound</label>
-					<div className="info-block__select-wrapper">
+					<div className="info-block__content select-wrapper">
 						<select
 							onChange={onChangeSound}
 							value={currentSound}
-							className="info-block__content info-block__select"
 						>
 							{selectSounds.map((sound) => (
 								<option key={sound.label} value={sound.value}>

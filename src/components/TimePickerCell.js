@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import ReactInputMask from "react-input-mask";
 import propTypes from "prop-types";
 function TimePickerCell({
@@ -8,6 +9,8 @@ function TimePickerCell({
 	fancy,
 	max = 59,
 }) {
+	let timeInput = useRef(null);
+
 	const addLeadingZero = (num) => {
 		num = num.toString();
 		if (num.length === 1) {
@@ -66,6 +69,10 @@ function TimePickerCell({
 		}
 	};
 
+	const setCursorPosition = () => {
+		timeInput.current.setSelection(0, 0);
+	};
+
 	return (
 		<div className={`${fancy && "time-picker-cell__input_fancy"}`}>
 			<label
@@ -94,6 +101,7 @@ function TimePickerCell({
 					</svg>
 				</button>
 				<ReactInputMask
+					ref={timeInput}
 					id={`${label}-input`}
 					className="time-picker-cell__input"
 					value={time}
@@ -103,6 +111,7 @@ function TimePickerCell({
 					title="scroll to change value"
 					onWheel={($event) => changeTimeValue($event)}
 					disabled={isTimerStarted}
+					onClick={() => setCursorPosition()}
 					onChange={(e) => {
 						setTime(e.target.value);
 					}}

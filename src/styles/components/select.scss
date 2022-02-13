@@ -1,0 +1,50 @@
+.select-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    select {
+        width: 100%;
+        /* Reset */
+        appearance: none;
+        border: 0;
+        outline: 0;
+        /* Personalize */
+        padding: 0 6px;
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--color-primary);
+        border-radius: 6px;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+
+        /* <option> colors */
+        option {
+            color: inherit;
+            background-color: var(--color-primary);
+            color: var(--color-primary-light);
+            text-align: center;
+        }
+
+        /* Remove focus outline */
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            &+.arrow {
+                fill: var(--color-primary-light);
+            }
+        }
+
+        /* Remove IE arrow */
+        &::-ms-expand {
+            display: none;
+        }
+    }
+
+    .arrow {
+        position: absolute;
+        height: 100%;
+        right: 0;
+        top: 0;
+    }
+}

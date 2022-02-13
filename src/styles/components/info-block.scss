@@ -1,13 +1,9 @@
-$glass: rgba(255, 255, 255, 0.2);
-$glass-icon: rgba(255, 255, 255, 0.3);
-$option: var(--color-secondary);
-
 .info-block {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 90px;
+    width: 105px;
     font-size: 1.125rem;
 
     &__label {
@@ -16,49 +12,10 @@ $option: var(--color-secondary);
 
     &__content {
         min-height: 27px;
-    }
-
-    &__select-wrapper {
-        position: relative;
         width: 100%;
-        font-size: 1rem;
-    }
-
-    /* <select> styles */
-    select {
-        width: 100%;
-        /* Reset */
-        appearance: none;
-        border: 0;
-        outline: 0;
-        /* Personalize */
-        padding: 0 4px;
         background: rgba(255, 255, 255, 0.2);
         color: var(--color-primary);
-        border-radius: 0.25em;
+        border-radius: 6px;
         box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-
-        /* <option> colors */
-        option {
-            color: inherit;
-            background-color: $option;
-        }
-
-        /* Remove focus outline */
-        &:focus {
-            outline: none;
-        }
-
-        /* Remove IE arrow */
-        &::-ms-expand {
-            display: none;
-        }
-    }
-
-    .arrow {
-        position: absolute;
-        right: 0;
-        top: 4px;
     }
 }
