@@ -36,7 +36,7 @@ export default function ModeSwitch({ isInfiniteMode, setIsInfiniteMode }) {
 				>
 					<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
 				</svg>
-				<div className="tooltipText">
+				<div className="tooltip__text">
 					{`Select the Timer Mode:
                       🐱‍👤: Stops each round and asks to continue,
                       🐱‍🏍: Does not stop at all and starts a new round`}

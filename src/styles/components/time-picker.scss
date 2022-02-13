@@ -1,4 +1,19 @@
-.timer-picker {
+.time-picker {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     max-width: fit-content;
-    margin: 40px auto 0;
+    margin: 0 auto;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex: auto;
+        justify-content: center;
+
+        @media screen and (min-width: $sm) {
+            justify-content: flex-start;
+            margin-top: 3rem;
+        }
+    }
 }

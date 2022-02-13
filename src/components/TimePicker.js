@@ -305,8 +305,8 @@ function TimePicker({ isInfiniteMode }) {
 	};
 
 	return (
-		<div className="timer-picker">
-			<div className="flex items-center justify-around gap-2">
+		<div className="time-picker">
+			<div className="flex items-center justify-around gap-2 mt-12">
 				<div className="info-block">
 					<label className="info-block__label">Round</label>
 					<div className="info-block__content ">{count}</div>
@@ -338,99 +338,101 @@ function TimePicker({ isInfiniteMode }) {
 					</div>
 				</div>
 			</div>
-			<div className="flex items-center justify-center gap-2 mt-12">
-				<TimePickerCell
-					label="hours"
-					time={time.h}
-					setTime={(value) => onChangeTime(value, "h")}
-					isTimerStarted={isTimerStarted}
-					max={99}
-					fancy
-				/>
-				<span className="text-5xl mt-12">:</span>
-				<TimePickerCell
-					label="minutes"
-					time={time.m}
-					setTime={(value) => onChangeTime(value, "m")}
-					isTimerStarted={isTimerStarted}
-				/>
-				<span className="text-5xl mt-12">:</span>
-				<TimePickerCell
-					label="seconds"
-					time={time.s}
-					setTime={(value) => onChangeTime(value, "s")}
-					isTimerStarted={isTimerStarted}
-				/>
-			</div>
-			<div className="mt-12 flex items-center justify-center gap-7">
-				{isStartShow ? (
-					<button
-						title="Start (p)"
-						className="btn btn_success w-full"
-						onClick={start}
-					>
-						<svg
-							width="13"
-							height="14"
-							viewBox="0 0 13 14"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path d="M1 12.2352V1.71741C1 0.950879 1.82696 0.469358 2.4936 0.847721L11.5088 5.96447C12.1749 6.34253 12.1862 7.29838 11.5292 7.69199L2.51393 13.093C1.84739 13.4923 1 13.0122 1 12.2352Z" />
-						</svg>
-						<span>Start</span>
-					</button>
-				) : (
-					<>
+			<div className="time-picker__content">
+				<div className="flex items-center justify-center gap-2">
+					<TimePickerCell
+						label="hours"
+						time={time.h}
+						setTime={(value) => onChangeTime(value, "h")}
+						isTimerStarted={isTimerStarted}
+						max={99}
+						fancy
+					/>
+					<span className="text-5xl mt-12">:</span>
+					<TimePickerCell
+						label="minutes"
+						time={time.m}
+						setTime={(value) => onChangeTime(value, "m")}
+						isTimerStarted={isTimerStarted}
+					/>
+					<span className="text-5xl mt-12">:</span>
+					<TimePickerCell
+						label="seconds"
+						time={time.s}
+						setTime={(value) => onChangeTime(value, "s")}
+						isTimerStarted={isTimerStarted}
+					/>
+				</div>
+				<div className="mt-12 flex items-center justify-center gap-7">
+					{isStartShow ? (
 						<button
-							title="Stop (ESC)"
-							className="btn btn_danger w-1/2"
-							onClick={stop}
+							title="Start (p)"
+							className="btn btn_success w-full"
+							onClick={start}
 						>
 							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="12"
+								width="13"
 								height="14"
-								viewBox="0 0 12 14"
+								viewBox="0 0 13 14"
+								xmlns="http://www.w3.org/2000/svg"
 							>
-								<rect width="12" height="14" rx="2" />
+								<path d="M1 12.2352V1.71741C1 0.950879 1.82696 0.469358 2.4936 0.847721L11.5088 5.96447C12.1749 6.34253 12.1862 7.29838 11.5292 7.69199L2.51393 13.093C1.84739 13.4923 1 13.0122 1 12.2352Z" />
 							</svg>
-							<span>Stop</span>
+							<span>Start</span>
 						</button>
-						{isPauseShow ? (
+					) : (
+						<>
 							<button
-								title="Pause (p)"
-								className="btn btn_fancy w-1/2"
-								onClick={pause}
+								title="Stop (ESC)"
+								className="btn btn_danger w-1/2"
+								onClick={stop}
 							>
 								<svg
+									xmlns="http://www.w3.org/2000/svg"
 									width="12"
 									height="14"
 									viewBox="0 0 12 14"
-									xmlns="http://www.w3.org/2000/svg"
 								>
-									<path d="M0 14H4V0H0V14ZM8 0V14H12V0H8Z" />
+									<rect width="12" height="14" rx="2" />
 								</svg>
-								<span>Pause</span>
+								<span>Stop</span>
 							</button>
-						) : (
-							<button
-								title="Play (p)"
-								className="btn btn_fancy w-1/2"
-								onClick={play}
-							>
-								<svg
-									width="12"
-									height="14"
-									viewBox="0 0 12 14"
-									xmlns="http://www.w3.org/2000/svg"
+							{isPauseShow ? (
+								<button
+									title="Pause (p)"
+									className="btn btn_fancy w-1/2"
+									onClick={pause}
 								>
-									<path d="M1 12.2352V1.71741C1 0.950879 1.82696 0.469358 2.4936 0.847721L11.5088 5.96447C12.1749 6.34253 12.1862 7.29838 11.5292 7.69199L2.51393 13.093C1.84739 13.4923 1 13.0122 1 12.2352Z" />
-								</svg>
-								<span>Play</span>
-							</button>
-						)}
-					</>
-				)}
+									<svg
+										width="12"
+										height="14"
+										viewBox="0 0 12 14"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path d="M0 14H4V0H0V14ZM8 0V14H12V0H8Z" />
+									</svg>
+									<span>Pause</span>
+								</button>
+							) : (
+								<button
+									title="Play (p)"
+									className="btn btn_fancy w-1/2"
+									onClick={play}
+								>
+									<svg
+										width="12"
+										height="14"
+										viewBox="0 0 12 14"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path d="M1 12.2352V1.71741C1 0.950879 1.82696 0.469358 2.4936 0.847721L11.5088 5.96447C12.1749 6.34253 12.1862 7.29838 11.5292 7.69199L2.51393 13.093C1.84739 13.4923 1 13.0122 1 12.2352Z" />
+									</svg>
+									<span>Play</span>
+								</button>
+							)}
+						</>
+					)}
+				</div>
 			</div>
 		</div>
 	);
