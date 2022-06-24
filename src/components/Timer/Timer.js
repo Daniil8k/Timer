@@ -13,11 +13,18 @@ import Cell from "./Cell/Cell";
 import Header from "./Header/Header";
 
 let timerId = null;
-let defaultTime = {
-	h: "00",
-	m: "05",
-	s: "00",
-};
+let defaultTime = (() => {
+	let time = localStorage.getItem("time");
+	let parsedTime = JSON.parse(time);
+	
+	return parsedTime
+		? parsedTime
+		: {
+				h: "00",
+				m: "05",
+				s: "00",
+		  };
+})();
 
 export default function Timer({ isInfiniteMode }) {
 	const [isTimerStarted, setIsTimerStarted] = useState(false);
@@ -172,6 +179,8 @@ export default function Timer({ isInfiniteMode }) {
 		setTimeProp(prop, value);
 		setTime((time) => {
 			calculateTotalTime(time);
+			defaultTime = time;
+			localStorage.setItem("time", JSON.stringify(time));
 			return time;
 		});
 	};
