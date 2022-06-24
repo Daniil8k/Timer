@@ -7,6 +7,20 @@ Demo: https://daniil8k.github.io/Timer/
 
 ![mockup](https://user-images.githubusercontent.com/93822098/153750876-d12719c1-89e1-4896-8c60-f3a8739fad09.png)
 
+## Features
+
+**Infinite Mode (by Deafult)** - Timer does not stop at all and continues to start a new round
+
+![Group 14](https://user-images.githubusercontent.com/93822098/153751368-e799b88f-1c49-41b4-beb3-c03ab0c07c5b.png)
+
+**Notification Mode** - Timer stops each round and continues when you click on the notification
+
+![Group 15](https://user-images.githubusercontent.com/93822098/153751595-dbb8184e-6889-4ad1-b306-2c167128e242.png)
+
+**Select your sound** - Bell 🔔, Bird 🐦, Cat 🐱 .....
+
+![image 29](https://user-images.githubusercontent.com/93822098/153751856-71782132-d2e2-4f88-bde7-7a7ccff8d1a7.png)
+
 ## Project setup
 
 ### `npm start` 🚀
