@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import logo from "./assets/logo.png";
 import ModeSwitch from "./components/ModeSwitch";
-import TimePicker from "./components/TimePicker";
+import Timer from "./components/Timer/Timer";
 
 function App() {
 	const getBooleanFromLocalStorage = (key) =>
@@ -26,7 +26,7 @@ function App() {
 				/>
 			</header>
 			<main>
-				<TimePicker isInfiniteMode={isInfiniteMode} />
+				<Timer isInfiniteMode={isInfiniteMode} />
 			</main>
 			<footer className="text-sm text-right flex gap-4 justify-end items-center">
 				<a

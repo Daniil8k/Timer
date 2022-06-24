@@ -41,6 +41,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    .down {
+        transform: rotate(180deg);
+    }
 
     &:hover {
         background-color: var(--color-primary);

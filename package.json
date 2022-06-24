@@ -27,7 +27,16 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "src"
+          ]
+        }
+      }
+    }
   },
   "browserslist": {
     "production": [

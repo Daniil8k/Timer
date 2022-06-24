@@ -1,27 +1,31 @@
 import { useEffect, useState, useRef } from "react";
+import { getTimeInSeconds } from "@/utils/utils";
 
-export default function ProgressCircle({ tick, total, time }) {
+export default function ProgressCircle({ isTimerStarted, totalTime, time }) {
 	const [progress, setProgress] = useState(0);
 	const spinner = useRef(null);
 
-	const getTimeInSeconds = (time) => {
-		return +time.h * 60 * 60 + +time.m * 60 + +time.s;
-	};
-
 	function getPct(value) {
-		console.log("total ", total);
-		console.log("pct ", Math.floor((value * 100) / total));
-		let pct = Math.floor((value * 100) / total);
+		// console.log("total ", total);
+		// console.log("pct ", Math.floor((value * 100) / total));
+		let pct = Math.floor((value * 100) / totalTime);
 		return isFinite(pct) && pct > 0 && pct <= 100 ? pct : 0;
 	}
 
 	useEffect(() => {
-		setProgress(() => getPct(total - getTimeInSeconds(time)));
-		setProgress((value) => {
-			setCircle(value);
-			return value;
-		});
-	}, [tick]);
+		if (totalTime - getTimeInSeconds(time) === 0) {
+			setProgress(0);
+			setCircle(0);
+		}
+
+		if (isTimerStarted) {
+			setProgress(() => getPct(totalTime - getTimeInSeconds(time)));
+			setProgress((value) => {
+				setCircle(value);
+				return value;
+			});
+		}
+	}, [time.s, isTimerStarted, totalTime]);
 
 	function setCircle(value) {
 		if (isFinite(value) && value >= 0 && value <= 100) {

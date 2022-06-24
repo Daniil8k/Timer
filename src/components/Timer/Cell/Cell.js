@@ -1,7 +1,9 @@
 import { useRef } from "react";
 import ReactInputMask from "react-input-mask";
 import propTypes from "prop-types";
-function TimePickerCell({
+import ArrowBtn from "./ArrowBtn";
+
+function Cell({
 	time,
 	setTime,
 	isTimerStarted,
@@ -84,22 +86,7 @@ function TimePickerCell({
 				{label}
 			</label>
 			<div className="flex flex-col gap-1">
-				<button
-					className={`time-picker-cell__arrow ${
-						isTimerStarted ? "invisible" : "visible"
-					}`}
-					onClick={increaceTime}
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						height="24px"
-						width="24px"
-						viewBox="0 0 24 24"
-					>
-						<path d="M0 0h24v24H0V0z" fill="none" />
-						<path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z" />
-					</svg>
-				</button>
+				<ArrowBtn isTimerStarted={isTimerStarted} onClick={increaceTime} />
 				<ReactInputMask
 					ref={timeInput}
 					id={`${label}-input`}
@@ -119,33 +106,21 @@ function TimePickerCell({
 						setValidTime(e.target.value);
 					}}
 				/>
-				<button
-					className={`time-picker-cell__arrow ${
-						isTimerStarted ? "invisible" : "visible"
-					}`}
+				<ArrowBtn
+					isTimerStarted={isTimerStarted}
 					onClick={decreaceTime}
-					fill="#000000"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						height="24px"
-						width="24px"
-						viewBox="0 0 24 24"
-					>
-						<path d="M0 0h24v24H0V0z" fill="none" />
-						<path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-					</svg>
-				</button>
+					dir="down"
+				/>
 			</div>
 		</div>
 	);
 }
 
-TimePickerCell.propTypes = {
+Cell.propTypes = {
 	time: propTypes.string,
 	setTime: propTypes.func,
 	isTimerStarted: propTypes.bool,
 	label: propTypes.string,
 };
 
-export default TimePickerCell;
+export default Cell;
